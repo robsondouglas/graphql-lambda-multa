@@ -1,0 +1,14 @@
+{
+    "name": "MULTA",
+    "image": "node:18",
+	"postCreateCommand": "/bin/bash .devcontainer/install.sh",
+	"runArgs": ["--name", "src_multa"],
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"GraphQL.vscode-graphql-syntax"
+			]
+		}
+	}
+	
+}

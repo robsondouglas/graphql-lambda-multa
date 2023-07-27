@@ -1,0 +1,244 @@
+{
+  "infracoes": [
+    {
+      "Id": "18bc71a4-59db-43ee-81f6-8874ca7962de",
+      "Nome": "Avançar o sinal vermelho",
+      "Valor": 293.47,
+      "Gravidade": "Grave"
+    },
+    {
+      "Id": "5c11067e-ef1e-4ceb-b5a5-f64428f66498",
+      "Nome": "Conduzir motocicleta fazendo malabarismo ou empinando",
+      "Valor": 880.41,
+      "Gravidade": "Gravíssima"
+    },
+    {
+      "Id": "2332c599-00e9-4b22-a24e-2897f2c57479",
+      "Nome": "Conduzir motocicleta sem capacete",
+      "Valor": 293.47,
+      "Gravidade": "Grave"
+    },
+    {
+      "Id": "80fe35a4-f677-4d66-871e-9b8212ff8a82",
+      "Nome": "Conduzir veículo com pneu careca",
+      "Valor": 293.47,
+      "Gravidade": "Grave"
+    },
+    {
+      "Id": "02905be3-5a7e-4b6e-9009-11c21fe560d4",
+      "Nome": "Deixar de prestar socorro à vítima de acidente de trânsito",
+      "Valor": 2934.70,
+      "Gravidade": "Gravíssima"
+    },
+    {
+      "Id": "0e56ede2-ae11-41da-9ef4-0cddd8abe850",
+      "Nome": "Dirigir com CNH vencida",
+      "Valor": 293.47,
+      "Gravidade": "Grave"
+    },
+    {
+      "Id": "9582e05e-24d3-4867-9f2e-3b38d1dd346b",
+      "Nome": "Dirigir com farol apagado à noite",
+      "Valor": 195.23,
+      "Gravidade": "Média"
+    },
+    {
+      "Id": "b2296748-10b1-4aa3-9383-61182d947428",
+      "Nome": "Dirigir sem atenção ou sem os cuidados indispensáveis à segurança",
+      "Valor": 293.47,
+      "Gravidade": "Grave"
+    },
+    {
+      "Id": "3830e8a1-47ba-4dc9-a237-fc783b8abfd3",
+      "Nome": "Dirigir sob efeito de álcool",
+      "Valor": 2934.70,
+      "Gravidade": "Gravíssima"
+    },
+    {
+      "Id": "b89e6b1a-8e6f-4a7c-811f-e347ba36f0a4",
+      "Nome": "Dirigir utilizando fones de ouvido",
+      "Valor": 195.23,
+      "Gravidade": "Média"
+    },
+    {
+      "Id": "3fbec211-5d4d-4dac-9e1e-fb246fc2e5a0",
+      "Nome": "Dirigir veículo em mau estado de conservação",
+      "Valor": 195.23,
+      "Gravidade": "Média"
+    },
+    {
+      "Id": "32e3b160-d4f6-4c05-9a6e-840d9573f07e",
+      "Nome": "Dirigir veículo sem os dispositivos de segurança obrigatórios",
+      "Valor": 293.47,
+      "Gravidade": "Grave"
+    },
+    {
+      "Id": "8d071a30-9c2b-4d18-97f3-3c749d977b92",
+      "Nome": "Dirigir veículo sem os documentos obrigatórios",
+      "Valor": 293.47,
+      "Gravidade": "Grave"
+    },
+    {
+      "Id": "6acf390d-b72c-463b-b1e8-31ef2bcf17f8",
+      "Nome": "Dirigir veículo sem os retrovisores obrigatórios",
+      "Valor": 195.23,
+      "Gravidade": "Média"
+    },
+    {
+      "Id": "8a631c06-5e52-4745-98a6-71894266ac63",
+      "Nome": "Estacionar em local de carga e descarga",
+      "Valor": 195.23,
+      "Gravidade": "Média"
+    },
+    {
+      "Id": "88512c91-62cb-40bd-8257-9c939c69bd67",
+      "Nome": "Estacionar em local de embarque e desembarque",
+      "Valor": 195.23,
+      "Gravidade": "Média"
+    },
+    {
+      "Id": "422a48d1-2326-40cb-8ef8-72dd1f323842",
+      "Nome": "Estacionar em local de embarque e desembarque de escolares",
+      "Valor": 293.47,
+      "Gravidade": "Grave"
+    },
+    {
+      "Id": "807e161b-7830-427e-9853-a01181a2fd07",
+      "Nome": "Estacionar em local de estacionamento regulamentado sem o ticket",
+      "Valor": 195.23,
+      "Gravidade": "Média"
+    },
+    {
+      "Id": "22fb1822-fdf5-4016-b8e0-f66f42fd6170",
+      "Nome": "Estacionar em local proibido",
+      "Valor": 195.23,
+      "Gravidade": "Média"
+    },
+    {
+      "Id": "4e2ba5a4-115c-4f82-9185-5b5d3bdb8b51",
+      "Nome": "Estacionar em local proibido pela sinalização",
+      "Valor": 195.23,
+      "Gravidade": "Média"
+    },
+    {
+      "Id": "c3826ae7-3a33-43c5-b110-161169ff495a",
+      "Nome": "Estacionar em vaga reservada para deficientes",
+      "Valor": 293.47,
+      "Gravidade": "Grave"
+    },
+    {
+      "Id": "8019a7bb-10ad-4ec5-bc3e-92ac726bee0f",
+      "Nome": "Excesso de velocidade",
+      "Valor": 880.41,
+      "Gravidade": "Gravíssima"
+    },
+    {
+      "Id": "fd268d3c-7dea-4785-8384-4a31327be92b",
+      "Nome": "Falar ou manusear celular enquanto dirige",
+      "Valor": 293.47,
+      "Gravidade": "Grave"
+    },
+    {
+      "Id": "1ca96022-4c22-4601-8421-3754240b878e",
+      "Nome": "Falta de CNH",
+      "Valor": 880.41,
+      "Gravidade": "Gravíssima"
+    },
+    {
+      "Id": "d5de72d9-5bf1-46aa-88af-f6a07c975ebc",
+      "Nome": "Falta de licenciamento ou IPVA",
+      "Valor": 293.47,
+      "Gravidade": "Grave"
+    },
+    {
+      "Id": "afab39f7-43aa-44df-af68-497a40f5dce7",
+      "Nome": "Fazer conversão proibida",
+      "Valor": 293.47,
+      "Gravidade": "Grave"
+    },
+    {
+      "Id": "b9a6fb50-c8e6-4c87-bc93-c3805e439fa3",
+      "Nome": "Furar fila de pedágio",
+      "Valor": 195.23,
+      "Gravidade": "Média"
+    },
+    {
+      "Id": "dee82ab0-d72c-4823-ac6b-61b76549c598",
+      "Nome": "Não dar preferência de passagem",
+      "Valor": 293.47,
+      "Gravidade": "Grave"
+    },
+    {
+      "Id": "3d48aa15-a7e2-4c97-bd7a-22b27db842d1",
+      "Nome": "Não reduzir a velocidade ao passar por obras",
+      "Valor": 880.41,
+      "Gravidade": "Gravíssima"
+    },
+    {
+      "Id": "b493f891-a174-4f19-bd17-7e9f8161a589",
+      "Nome": "Não respeitar a faixa de pedestres",
+      "Valor": 293.47,
+      "Gravidade": "Grave"
+    },
+    {
+      "Id": "322281cb-a4a4-4eca-b7d4-0e615a995420",
+      "Nome": "Não usar o cinto de segurança",
+      "Valor": 195.23,
+      "Gravidade": "Média"
+    },
+    {
+      "Id": "466476ae-0ee6-4b66-bef3-bd81226fa83f",
+      "Nome": "Não utilizar o cinto de segurança no banco traseiro",
+      "Valor": 195.23,
+      "Gravidade": "Média"
+    },
+    {
+      "Id": "5327a5e3-0b65-4e44-be98-8b32b38a5cc5",
+      "Nome": "Não utilizar setas para indicar mudança de direção",
+      "Valor": 293.47,
+      "Gravidade": "Grave"
+    },
+    {
+      "Id": "b35b321d-9dde-479e-ad0b-7b49cb210c68",
+      "Nome": "Transitar em acostamento",
+      "Valor": 880.41,
+      "Gravidade": "Gravíssima"
+    },
+    {
+      "Id": "30550b6d-41c6-4b0b-b512-2e977c840ca0",
+      "Nome": "Transitar em rodovia com veículo de carga sem a devida autorização",
+      "Valor": 1467.35,
+      "Gravidade": "Gravíssima"
+    },
+    {
+      "Id": "89a9b3c3-7c07-490d-8cc6-956cdcd16fa4",
+      "Nome": "Transitar em velocidade inferior à metade da velocidade mínima da via",
+      "Valor": 195.23,
+      "Gravidade": "Média"
+    },
+    {
+      "Id": "bb725f8d-3825-4258-a82e-074f7355d9f7",
+      "Nome": "Transportar criança sem a cadeirinha",
+      "Valor": 293.47,
+      "Gravidade": "Grave"
+    },
+    {
+      "Id": "8287c6df-df75-4079-b7f4-5d1748d0d10c",
+      "Nome": "Ultrapassagem em local proibido",
+      "Valor": 1467.35,
+      "Gravidade": "Gravíssima"
+    },
+    {
+      "Id": "4a8e5df9-eb9d-4d4b-b80d-b29d71f01f4d",
+      "Nome": "Ultrapassar pela contramão em curvas ou em aclives",
+      "Valor": 1467.35,
+      "Gravidade": "Gravíssima"
+    },
+    {
+      "Id": "c45f99bf-ae6d-4716-9fc1-307c594ec585",
+      "Nome": "Utilizar veículo para interromper a circulação da via propositalmente",
+      "Valor": 2934.70,
+      "Gravidade": "Gravíssima"
+    }
+  ]
+}

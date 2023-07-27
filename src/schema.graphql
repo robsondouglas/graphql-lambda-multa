@@ -1,0 +1,66 @@
+extend schema @link(url: "https://specs.apollo.dev/federation/v2.0", import: ["@key"])
+
+type Infracao @key(fields: "Id")
+{
+    "Identificador do Fabricante"
+    Id:     String,
+    "Nome do Fabricante"
+    Nome:   String,    
+    "Valor da multa"
+    Valor: Float,
+    "Gravidade da infração"
+    Gravidade: String,
+}
+
+type Multa @key(fields: "Id") 
+{
+    "Identificador da multa"
+    Id:        String,
+    "Dados da infraçãao"
+    Infracao:  Infracao,
+    "Dados do veículo"
+    Veiculo:   Veiculo,    
+    "Data que a infração ocorreu"
+    DateAdd:   Float,
+    "Data que a infração foi paga"
+    DatePay:   Float
+}
+
+type Veiculo @key(fields: "Placa", resolvable: false) 
+{
+    "Placa do veículo"
+    Placa:  String,
+    Multas(situacao:SituacaoMulta): [Multa!]  
+}
+
+enum SituacaoMulta{
+    PAGA
+    PENDENTE
+}
+
+type Query{
+    "Lista todas as infrações"
+    infracoes(Nome:String): [Infracao],
+    "Obtem os dados da infração"
+    infracao(Id: Int):  Infracao,
+    
+    "Lista todos os modelos de um fabricante"
+    multas(placa: String!, situacao:SituacaoMulta) : [Multa],
+    "Obtem os dados de um modelo"
+    multa(Id: String) : Multa,    
+}
+
+type Mutation{
+    "Inclui um veículo"
+    addMulta(itm:MultaInput):Boolean,
+    "Remove um veículo"
+    payMulta(Id:Int):Boolean,
+}
+
+input MultaInput
+{
+    "Placa do carro padrão Brasil 3 letras ou Mercosul"
+    Placa:        String,
+    "Identificador do proprietário do veículo"
+    IdInfracao:   String,
+}
