@@ -28,17 +28,36 @@ describe('MULTA', ()=>{
         
     });
 
+    it("PAY", async()=>{
+        const itm = mockData(randomUUID());
+        const res = await multa.post(itm);
+        await expect(multa.get({Placa: itm.Placa, DateAdd: itm.DateAdd })).resolves.toMatchObject(itm);
+        
+        await expect(multa.pay({...itm, DateAdd: null})).rejects.toThrow(MESSAGES.MULTA.DATEADD_REQUIRED);
+        await expect(multa.pay({...itm, Placa: null})).rejects.toThrow(MESSAGES.MULTA.PLATE_REQUIRED);
+        await expect(multa.pay({...itm, Placa: 'AA-8080'})).rejects.toThrow(MESSAGES.MULTA.PLATE_FORMAT);
+        
+        await expect(multa.pay(res)).resolves.not.toThrow()
+
+        await expect(multa.pay({Placa: itm.Placa, DateAdd: itm.DateAdd })).rejects.toThrow(MESSAGES.MULTA.UNIQUE_PAYMENT);
+
+        await expect(multa.get({Placa: itm.Placa, DateAdd: itm.DateAdd })).resolves.toMatchObject({...itm, Situacao: "QUITADO"});
+
+    })
+
     it('GET', async()=>{
         const itm = mockData(randomUUID());
+        
+        
         await multa.post(itm);
 
-        await expect(multa.get({IdInfracao: randomUUID(), Placa: itm.Placa})).resolves.toBeNull();
-        await expect(multa.get({IdInfracao: itm.IdInfracao, Placa: randomUUID()})).resolves.toBeNull();
-        
-        await expect(multa.get({IdInfracao: itm.IdInfracao, Placa: itm.Placa })).resolves.toMatchObject(itm);
+        await expect(multa.get({Placa: itm.Placa, DateAdd: new Date(2000,0,1)})).resolves.toBeNull();
+        await expect(multa.get({Placa: randomUUID(), DateAdd: itm.DateAdd})).resolves.toBeNull();
+        await expect(multa.get({Placa: itm.Placa, DateAdd: itm.DateAdd, Situacao: "QUITADO" })).resolves.toBeNull();
+
+        await expect(multa.get({Placa: itm.Placa, DateAdd: itm.DateAdd })).resolves.toMatchObject(itm);
+        await expect(multa.get({Placa: itm.Placa, DateAdd: itm.DateAdd, Situacao: "PENDENTE" })).resolves.toMatchObject(itm);
     });
-
-
     
     it('LIST', async()=>{
         const infracao = new Infracao();
@@ -57,9 +76,7 @@ describe('MULTA', ()=>{
         
         await expect(multa.list({Placa})).resolves.toHaveLength( infracoes.length );
         await expect(multa.list({Placa, situacao: "PENDENTE"})).resolves.toHaveLength( infracoes.length );
-        await expect(multa.list({Placa, situacao: "PAGA"})).resolves.toHaveLength( 0 );
-
-        
+        await expect(multa.list({Placa, situacao: "QUITADO"})).resolves.toHaveLength( 0 );      
     });
 
     

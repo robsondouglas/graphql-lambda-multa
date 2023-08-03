@@ -1,20 +1,24 @@
-export interface IPK {
-    Placa:      string
-}
-export interface IFK {
-    IdInfracao: string
-}
-export interface IKey extends IPK, IFK{
+export type Situacao = "PENDENTE"|"QUITADO";
+
+export interface IKey{
+    DateAdd?:    Date,
+    Situacao?:   Situacao 
 }
 
-export interface IData extends IKey{
-    DateAdd?:    Date,
+export interface IPK extends IKey {
+    Placa:       string,
+}
+
+
+export interface IData extends IPK{
+    IdInfracao: string
     DatePay?:   Date
 }
 
-export type Situacao = "PAGA" | "PENDENTE"
 
-export interface IFilter extends IPK
+export interface IFilter
 {
+    Placa: string,
     situacao?: Situacao
+    DataInfracao?: Date
 }

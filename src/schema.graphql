@@ -1,4 +1,9 @@
-extend schema @link(url: "https://specs.apollo.dev/federation/v2.0", import: ["@key"])
+extend schema @link(url: "https://specs.apollo.dev/federation/v2.0", import: ["@key", "@external", "@provides"])
+
+enum SituacaoMulta {
+    PENDENTE
+    QUITADO
+}
 
 type Infracao @key(fields: "Id")
 {
@@ -23,20 +28,18 @@ type Multa @key(fields: "Id")
     "Data que a infração ocorreu"
     DateAdd:   Float,
     "Data que a infração foi paga"
-    DatePay:   Float
+    DatePay:   Float,
+    
 }
 
-type Veiculo @key(fields: "Placa", resolvable: false) 
+extend type Veiculo @key(fields: "Placa") 
 {
     "Placa do veículo"
-    Placa:  String,
-    Multas(situacao:SituacaoMulta): [Multa!]  
+    Placa:  String! @external,
+    MultasPendentes: [Multa]
+    MultasQuitadas:  [Multa] 
 }
 
-enum SituacaoMulta{
-    PAGA
-    PENDENTE
-}
 
 type Query{
     "Lista todas as infrações"
@@ -44,7 +47,7 @@ type Query{
     "Obtem os dados da infração"
     infracao(Id: Int):  Infracao,
     
-    "Lista todos os modelos de um fabricante"
+    "Lista todas as multas de um veículo"
     multas(placa: String!, situacao:SituacaoMulta) : [Multa],
     "Obtem os dados de um modelo"
     multa(Id: String) : Multa,    

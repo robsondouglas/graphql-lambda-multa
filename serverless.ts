@@ -16,13 +16,20 @@ const accountId = '8133-9794-5060';
 const service   = {alias: "MUL", name: 'Multa' }
 const stage     =  args('stage', 'dev').toUpperCase();
 const region    = "sa-east-1";
+const cognitoPoolId = 'sa-east-1_lK1q4kfO6';
 
 const tables = {
-  Multa: {key: 'tblMulta', name: `${service.alias}_MULTA_TBL_${stage}`},
+  Multa: {key: 'tblMulta', name: `${service.alias}_MULTA_TBL_${stage}`, idx:3 },
 };
 
 const topics = {
   Multa: {key: 'topMulta', name: `${service.alias}_MULTA_TOP_${stage}`},
+}
+
+const Apps = {
+  Agente: '1smc1s7c4ktbre5a5ijqcuskkq',
+  Admin: '3qtrdb222hhnc5a1d36qsjmpkb',
+  Cidadao: 'bbvm4gnh4gllju7f4bdepdioh'
 }
 
 const serverlessConfiguration: AWS = {
@@ -31,6 +38,17 @@ const serverlessConfiguration: AWS = {
   plugins: ['serverless-esbuild', 'serverless-offline', 'serverless-dynamodb-local'],
   provider: {
     name: 'aws',
+    httpApi: {
+      cors: { allowedOrigins: ['*'], allowedHeaders: ['Content-Type', 'Authorization'], allowedMethods: ['POST'], /*allowCredentials: true*/ },
+      authorizers: {
+        auth: {
+          type: 'jwt',
+          identitySource: '$request.header.Authorization',
+          issuerUrl: `https://cognito-idp.sa-east-1.amazonaws.com/${cognitoPoolId}`,
+          audience: [Apps.Admin, Apps.Agente, Apps.Cidadao]
+        }
+      }
+    },
     region,
     runtime: 'nodejs18.x',
     apiGateway: {
@@ -40,7 +58,10 @@ const serverlessConfiguration: AWS = {
     environment: {
       AWS_NODEJS_CONNECTION_REUSE_ENABLED: '1',
       tblMulta: tables.Multa.name,
-      topicMulta: topics.Multa.name,
+      cognitoPoolId,
+      appAgente: Apps.Agente,
+      appCidadao: Apps.Cidadao,
+      topicMulta: `arn:aws:sns:${region}:${accountId}:${topics.Multa.name}`,
       NODE_OPTIONS: '--enable-source-maps --stack-trace-limit=1000',
       ... Object.keys(tables).reduce((obj, k)=> { obj[`tbl${k}`]  = tables[k].name; return obj }, {}),
     },
@@ -112,12 +133,12 @@ const serverlessConfiguration: AWS = {
         Properties: {
           TableName: tables.Multa.name,
           AttributeDefinitions:[
-            {AttributeName:'Placa',       AttributeType: 'S'},
-            {AttributeName:'IdInfracao',  AttributeType: 'S'}
+            {AttributeName:'Placa',  AttributeType: 'S'},
+            {AttributeName:'Chave',  AttributeType: 'S'},
           ],
           KeySchema:[
-            {AttributeName: 'Placa',      KeyType: 'HASH'},
-            {AttributeName: 'IdInfracao', KeyType: 'RANGE'},            
+            {AttributeName: 'Placa', KeyType: 'HASH'},
+            {AttributeName: 'Chave', KeyType: 'RANGE'},
           ],
           BillingMode: 'PAY_PER_REQUEST'
         }
